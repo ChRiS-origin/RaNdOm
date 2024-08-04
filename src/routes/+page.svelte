@@ -1,8 +1,8 @@
 <script>
-    import ModeSwitch from '$lib/components/ModeSwitch.svelte';
+    import Header from '$lib/components/Header.svelte';
 </script>
 
-<ModeSwitch/>
+<Header/>
 
 <style>
         main {
