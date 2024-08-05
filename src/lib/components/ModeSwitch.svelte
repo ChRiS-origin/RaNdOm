@@ -1,26 +1,20 @@
 <script>
-    let RandMode = 'R@ŊðØm';
-
+    import {rotateIcon} from "$lib/ui_logic";
+    let RandMode = 'Random';
     const handleClick = () => {
-        if (RandMode === 'R@ŊðØm') {
-            RandMode = 'R@ŊðØm-list';
+        if (RandMode === 'Random') {
+            RandMode = 'Random-list';           
         } else {
-            RandMode = 'R@ŊðØm';
+            RandMode = 'Random';
         }
     };
 </script>
 
-<main>
-    <button class="modeButton" on:click={handleClick}>{RandMode}</button>
-</main>
 
+<button class="" type="button" on:click={()=>{handleClick(); rotateIcon();}}>{RandMode}</button>
 
 <style>
-	.modeButton{
-		color:red;
-		font-size:1em;
-        border: none;
-        background-color: transparent;
-		padding:0.1em;
-	}
+    button{
+        text-align: center;   
+    }
 </style>
