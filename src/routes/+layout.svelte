@@ -1,15 +1,12 @@
 <script>
     import "../app.css";
     import NavBar from '$lib/components/NavBar.svelte';
+    
+    let RandMode = 'Random';
+</script>
 
-  </script>
-
-<body>
-  <NavBar/>
-</body>
+<NavBar {RandMode}/>
 
 <main id="main" class="">
     <slot/>
 </main>
-
-  

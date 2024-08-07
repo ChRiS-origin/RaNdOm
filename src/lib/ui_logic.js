@@ -13,3 +13,5 @@ const rotate = (icon) =>{
         icon.classList.remove('notransition');
     }, 301);
 }
+
+// export let RandMode = 'Random';

@@ -18,31 +18,14 @@
   }
   
 
-body {
+/* body{
     min-height: 100vh;
     background-color: #18181b;
     background-size: cover;
     font-family:  "Abel", sans-serif;
     color: white;
-}
-
-
-.DarkmodeButton{
-    color:blue;
-    font-size:50em;
-    border: none;
-    background-color: transparent;
-    padding:0.1em;
-}
-
-
-.modeButton{
-    color:red;
-    font-size:1em;
-    border: none;
-    background-color: transparent;
-    padding:0.1em;
-}
+    z-index: -1;
+} */
 
 
 .rotate-360 {
