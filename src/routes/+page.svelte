@@ -52,6 +52,7 @@
         min-width: 300px;
         background-color: #6d28d9;
         padding: 5px;
+        margin-bottom: 10px;
         border-radius: 10px;
         border-color: white;
         color: white;
