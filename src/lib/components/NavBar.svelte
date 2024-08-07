@@ -11,16 +11,16 @@
 
 <nav>
     <ul class="flex-container">
-      <li class="flex-item">
-          <img id="dark-random-icon" class="transition ease-in-out duration-300" src="{assets}/button-rand.png" alt="Random">
-          <img id="light-random-icon" class="transition ease-in-out duration-300" src="{assets}/silverbutton-rand.png"  alt="Random">
-      </li>
-      <li class="flex-item">
-          <ModeSwitch {RandMode}/>
-      </li>
-      <li class="flex-item">
-          <DarkModeSwitch/>
-      </li>
+        <li class="flex-item">
+            <img id="light-random-icon" class="transition ease-in-out duration-300" src="{assets}/silverbutton-rand.png"  alt="Random">
+            <img id="dark-random-icon" class="transition ease-in-out duration-300" src="{assets}/button-rand.png" alt="Random">
+        </li>
+        <li class="flex-item">
+            <ModeSwitch {RandMode} on:click/>
+        </li>
+        <li class="flex-item">
+            <DarkModeSwitch/>
+        </li>
     </ul>
 </nav>
 
@@ -39,7 +39,7 @@
       margin: 0;
       margin-top: -35px;
       list-style: none;
-      box-shadow: 3px 3px rgba(0, 0, 0, 0.463);
+      box-shadow:  0px 3px 3px rgba(0, 0, 0, 0.463);
     }
 
     .flex-item{

@@ -8,19 +8,50 @@
     const toggleOverlay = () => {
             showOverlay =  !showOverlay;
     };
-    export let RandMode = 'Random';
+    import NavBar from '$lib/components/NavBar.svelte';
+    
+    let RandMode = 'Random';
+
+    const handleClick = () => {
+    if (RandMode === 'Random') {
+        RandMode = 'Random-list';           
+    } else {
+        RandMode = 'Random';
+        }
+    };
 </script>
 
-
-<Overlay {showOverlay} {RandMode} on:click={toggleOverlay}/>
-
-{showOverlay}
-
+<NavBar {RandMode} on:click={handleClick}/>
 <div>
     <button class="button" on:click={() => {rotateIcon(); toggleOverlay();}}>
         R@ŊðØm
     </button>
 </div>
+<Overlay {showOverlay} {RandMode} on:click={toggleOverlay}/>
+
+<p> 
+    {RandMode}
+</p><p> 
+    {RandMode}
+</p><p> 
+    {RandMode}
+</p><p> 
+    {RandMode}
+</p><p> 
+    {RandMode}
+</p><p> 
+    {RandMode}
+</p><p> 
+    {RandMode}dkdnkdanvks
+</p><p> 
+    {RandMode}yx  asccaascsa
+</p><p> 
+    {RandMode}ascacsasc
+</p><p> 
+    {RandMode}ascascasc
+</p>
+
+
 
 
 <style>

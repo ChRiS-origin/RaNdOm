@@ -15,7 +15,7 @@
                     </button>
                 </li>
                 <li class="flex-item">
-                    {RandMode}
+                    »Your result«
                 </li>
                 <li class="flex-item">
                     <button id="close" class="OverlayButton closeOverlay" on:click>
@@ -23,7 +23,9 @@
                     </button>
                 </li>
             </ul>
-            <p>Overlay yay!!</p>
+            <p> 
+                {RandMode}
+            </p>
         </div>
     </div>    
 {/if}
@@ -34,16 +36,20 @@
         height: 100%;
         position: fixed;
         background: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(0.8px);
     }
 
     .overlay{
-        padding: 10px;
+        padding: 3px;
         border-radius: 10px;
-        max-width: 400px;
+        width: 93vw;
+        min-width: 368px;
         margin: 10% auto;
-        background: #18181b;
+        background: #18181b54;
+        backdrop-filter: blur(1.3px);
         box-shadow: 0px 0px 1px 1px rgba(255, 255, 255, 0.436) inset;
         text-align: center;
+        color: white;
     }
 
     .flex-container{
@@ -54,26 +60,25 @@
       margin: 0;
       margin-top: -50px;
       list-style: none;
-      box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.463);
+      box-shadow: 0 3px 0px rgba(0, 0, 0, 0.436);
     }
 
     .flex-item{
         height: 100%;
         padding: 10px;
         width: 200px;
-        margin-top: 10px;
+        margin-top: 15px;
         margin-bottom: -40px;
         line-height: 120px;
-        font-weight: bold;
-        font-size: 1.5em;
+        font-size: 1.3rem;
         text-align: center;
     }
 
     .OverlayButton {
         border:none; 
-        border-radius:12px; 
-        padding:15px;
-        min-height:30px; 
+        border-radius: 12px; 
+        padding: 15px;
+        min-height: 20px; 
         min-width: 20px;
      }
 
@@ -95,4 +100,10 @@
         background-color: rgba(82, 42, 176, 0.987);
     }
 
+    @media(max-width: 401px){ 
+        .flex-item{
+            font-size: 1.1rem;
+        }
+    }
+    
 </style>
