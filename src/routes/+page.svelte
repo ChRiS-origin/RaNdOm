@@ -1,6 +1,6 @@
 <script>
     import Overlay from '$lib/components/Overlay.svelte';
-    import Options from '$lib/components/Options.svelte';
+    import OptionsList from '$lib/components/OptionsList.svelte';
     import {rotateIcon} from "$lib/ui_logic";
     
     export let showOverlay = false;
@@ -22,13 +22,15 @@
 </script>
 
 <NavBar {RandMode} on:click={handleClick}/>
-<Options/>
+<Overlay {showOverlay} {RandMode} on:click={toggleOverlay}/>
+<OptionsList/>
 <div>
     <button class="button" on:click={() => {rotateIcon(); toggleOverlay();}}>
         R@ŊðØm
     </button>
 </div>
-<Overlay {showOverlay} {RandMode} on:click={toggleOverlay}/>
+
+
 
 
 <style>

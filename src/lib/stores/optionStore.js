@@ -26,7 +26,7 @@ export const selectOption = (id) => {
                 break;
             }
         }
-
+        
         return options;
     });
 }

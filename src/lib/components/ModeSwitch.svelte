@@ -3,7 +3,6 @@
     export let RandMode = 'Random';
 </script>
 
-
 <button class="button" on:click on:click={rotateIcon}>{RandMode}</button>
 
 <style>

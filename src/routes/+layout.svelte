@@ -3,8 +3,6 @@
     
 </script>
 
-
-
 <main id="main" class="">
     <slot/>
 </main>

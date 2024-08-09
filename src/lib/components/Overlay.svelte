@@ -33,10 +33,11 @@
 <style>
     .backdrop{
         width: 100%;
-        height: 100%;
+        min-height: 100vh;
         position: fixed;
         background: rgba(0, 0, 0, 0.8);
         backdrop-filter: blur(0.8px);
+        z-index: 99;
     }
 
     .overlay{
@@ -50,6 +51,7 @@
         box-shadow: 0px 0px 1px 1px rgba(255, 255, 255, 0.436) inset;
         text-align: center;
         color: white;
+        z-index: 100;
     }
 
     .flex-container{
