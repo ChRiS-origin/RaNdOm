@@ -15,7 +15,7 @@
             <img id="light-random-icon" class="transition ease-in-out duration-300" src="{assets}/silverbutton-rand.png"  alt="Random">
             <img id="dark-random-icon" class="transition ease-in-out duration-300" src="{assets}/button-rand.png" alt="Random">
         </li>
-        <li class="flex-item">
+        <li class="flex-item button">
             <ModeSwitch {RandMode} on:click/>
         </li>
         <li class="flex-item">
@@ -25,7 +25,6 @@
 </nav>
 
 <style>
-
     nav{
         font-size: 1rem;
         line-height: 2rem;

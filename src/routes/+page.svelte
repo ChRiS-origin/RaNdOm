@@ -1,6 +1,6 @@
 <script>
     import Overlay from '$lib/components/Overlay.svelte';
-    // import Footer from '$lib/components/Footer.svelte';
+    import Options from '$lib/components/Options.svelte';
     import {rotateIcon} from "$lib/ui_logic";
     
     export let showOverlay = false;
@@ -22,36 +22,13 @@
 </script>
 
 <NavBar {RandMode} on:click={handleClick}/>
+<Options/>
 <div>
     <button class="button" on:click={() => {rotateIcon(); toggleOverlay();}}>
         R@ŊðØm
     </button>
 </div>
 <Overlay {showOverlay} {RandMode} on:click={toggleOverlay}/>
-
-<p> 
-    {RandMode}
-</p><p> 
-    {RandMode}
-</p><p> 
-    {RandMode}
-</p><p> 
-    {RandMode}
-</p><p> 
-    {RandMode}
-</p><p> 
-    {RandMode}
-</p><p> 
-    {RandMode}dkdnkdanvks
-</p><p> 
-    {RandMode}yx  asccaascsa
-</p><p> 
-    {RandMode}ascacsasc
-</p><p> 
-    {RandMode}ascascasc
-</p>
-
-
 
 
 <style>
@@ -85,9 +62,10 @@
         padding: 5px;
         margin-bottom: 10px;
         border-radius: 10px;
-        border-color: white;
-        color: white;
+        border-color: #f2eee2;
+        color: #f2eee2;
         font-size: 1.5em;
+        cursor: pointer;
     }
 
     .button:focus:active{
