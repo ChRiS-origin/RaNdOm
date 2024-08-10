@@ -4,15 +4,25 @@
     import {options, addOption, deleteOption} from "../stores/optionStore";
 	import Option from "./Option.svelte";
     
-    // const optionForm = document.querySelector('form');
-    let option;
+    let optionInput="";
+    let inputField;
 
+    const handleAdd = (optionInput) => {
+            if (optionInput !== '') {
+                addOption(optionInput);
+                console.log("stored option:", optionInput);
+                optionInput = '';
+                inputField.value = '';
+        }
+        setTimeout(rotateIcon);
+    }
 </script>
+
 <bodyOptions>
     <div class="wrapper">
-        <form>
-            <input id="optionInput" type="text" placeholder="type in your option…" autocomplete="off" bind:value={option}>
-            <button id="addButton" on:click={rotateIcon}>ADD</button>
+        <form on:submit|preventDefault={() =>{rotateIcon(); handleAdd(optionInput);}}>
+            <input id="optionInput" type="text" placeholder="type in your option…" autocomplete="off" bind:value={optionInput} bind:this={inputField}>
+            <button id="addButton">ADD</button>
         </form>
         <ul id="optionListHead" >
             <li class="optionHead">
@@ -29,21 +39,25 @@
             </li>
         </ul>
         <p>
-            Hello {option || 'stranger'}!
+            Hello {optionInput || 'nothing'}!
         </p>
-        <ul id="optionList">
-            <Option/>
-            <!-- {#each $Option as Option (option) }
-                <Option {...option} on:delete={deleteOption}/>
-            {:else}
-                <p>No Options exist</p>
-            {/each} -->
-        </ul>
+        <div class="overflow-auto">
+            <ul id="optionList" class="optionList  w-full">
+                {#each $options as option, optionIndex (option.id)}
+                    <Option option={option} optionIndex={optionIndex} on:delete={deleteOption}/>
+                {:else}
+                    <p>No Options yet…</p>
+                {/each}
+            </ul>
+        </div>   
     </div>
 </bodyOptions>
 
 
 <style>
+    .optionList{
+        max-height: 65vh;
+    }
     bodyOptions{
         padding: 10px;
         display: flex;

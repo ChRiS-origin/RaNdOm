@@ -30,9 +30,6 @@
     </button>
 </div>
 
-
-
-
 <style>
     :global(body) {
         min-height: 100vh;
