@@ -3,6 +3,46 @@
     export let RandMode;
     const RunAgain = () => {
     };
+    // import {overlayContent, rotateIcon, toggleOverlay} from '$lib/ui_logic';
+    // import { onMount } from 'svelte';
+    // import ResultOrder from './ResultOrder.svelte';
+    // import ResultSelection from './ResultSelection.svelte';
+
+    // let touchstartX = 0
+    // let touchendX = 0
+    // let touchstartY = 0
+    // let touchendY = 0
+
+    // let screenWidth40 = null;
+
+    // onMount(() => {
+    //     const slider = document.getElementById('main');
+
+    //     function handleGesture() {
+    //         let angle = Math.atan((touchendY -touchstartY) / (touchendX - touchstartX)) / Math.PI * 180;
+    //         if (Math.abs(angle) < 25 && (Math.abs(touchendX - touchstartX) > (window.screen.width * 0.4) || Math.abs(touchendX - touchstartX) > 240)) {
+    //             if (touchendX < touchstartX) {
+    //                 toggleOverlay();
+    //             }
+    //             if (touchendX > touchstartX) {
+    //                 toggleOverlay();
+    //             }
+    //         }
+    //     }
+
+    //     slider.addEventListener('touchstart', e => {
+    //         touchstartX = e.changedTouches[0].screenX;
+    //         touchstartY = e.changedTouches[0].screenY;
+    //     })
+
+    //     slider.addEventListener('touchend', e => {
+    //         touchendX = e.changedTouches[0].screenX;
+    //         touchendY = e.changedTouches[0].screenY;
+    //         handleGesture();
+    //     })
+
+    //     screenWidth40 = window.screen.width * 0.4;
+    // });
 </script>
 
 {#if showOverlay}

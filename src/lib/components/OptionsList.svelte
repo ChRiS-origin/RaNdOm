@@ -1,7 +1,6 @@
 <script>
     import {rotateIcon} from "$lib/ui_logic";
-    import {onMount} from "svelte";
-    import {options, addOption, deleteOption} from "../stores/optionStore";
+    import {options, addOption, deleteOption, selectAllOption, deselectAllOption, deleteSelectedOption, selectOption} from "../stores/optionStore";
 	import Option from "./Option.svelte";
     
     let optionInput="";
@@ -16,6 +15,52 @@
         }
         setTimeout(rotateIcon);
     }
+
+    import {flip} from 'svelte/animate';
+
+    // let hovering = -1;
+    let allSelected = false;
+
+    // const drop = (event, target) => {
+    //     event.dataTransfer.dropEffect = 'move'; 
+    //     const start = parseInt(event.dataTransfer.getData("text/plain"));
+    //     options.update((options) => {
+    //         if (start < target) {
+    //             options.splice(target + 1, 0, options[start]);
+    //             options.splice(start, 1);
+    //         } else {
+    //             options.splice(target, 0, options[start]);
+    //             options.splice(start + 1, 1);
+    //         }
+    //         return options;
+    //     });
+
+    //     hovering = -1;
+    // }
+
+    // const dragstart = (event, i, id) => {
+        
+    //     document.getElementById('edit-option-' + id).blur();
+    //     event.dataTransfer.effectAllowed = 'move';
+    //     event.dataTransfer.dropEffect = 'move';
+    //     const start = i;
+    //     event.dataTransfer.setData('text/plain', start);
+    // }
+
+    // options.subscribe(options => {
+    //     for (let i = 0; i < options.length; i++) {
+    //         if (!options[i].selected) {
+    //             allSelected = false;
+    //             return options;
+    //         }
+    //     }
+    //     if (options.length > 0) {
+    //         allSelected = true;
+    //     } else {
+    //         allSelected = false;
+    //     }
+    //     return options;
+    // });
 </script>
 
 <bodyOptions>
@@ -26,27 +71,38 @@
         </form>
         <ul id="optionListHead" >
             <li class="optionHead">
-                <input type="checkbox" id="selectAll">
+                <input type="checkbox" id="selectAll"  bind:checked={allSelected} on:change={() => { if (allSelected) {selectAllOption()} else {deselectAllOption()}}}>
                 <label class="custom-checkbox" for="selectAll">
                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="transparent"><path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/></svg>
                 </label>
                 <label for="selectAll" class="optionHeadText">
                     select all
                 </label>
-                <button id="deleteAllButton" class="deleteButton">
+                <button id="deleteAllButton" class="deleteButton" on:click={deleteSelectedOption}>
                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f5d5d"><path d="m376-300 104-104 104 104 56-56-104-104 104-104-56-56-104 104-104-104-56 56 104 104-104 104 56 56Zm-96 180q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520Zm-400 0v520-520Z"/></svg>
                 </button>
             </li>
         </ul>
-        <p>
+        <!-- <p>
             Hello {optionInput || 'nothing'}!
-        </p>
+        </p> -->
         <div class="overflow-auto">
             <ul id="optionList" class="optionList  w-full">
                 {#each $options as option, optionIndex (option.id)}
+                <!-- <div animate:flip="{{duration: 300}}"
+                    draggable={true} 
+                    on:dragstart={event => dragstart(event, optionIndex, option.id)}
+                    on:drop|preventDefault={event => drop(event, optionIndex)}
+                    ondragover="return false"
+                    on:dragenter={() => hovering = optionIndex}
+                    class:is-hovering={hovering === optionIndex}>
                     <Option option={option} optionIndex={optionIndex} on:delete={deleteOption}/>
+                </div> -->
+                <Option option={option} optionIndex={optionIndex}/>
                 {:else}
-                    <p>No Options yet…</p>
+                    <li class="nothingThere">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="m296-224-56-56 240-240 240 240-56 56-184-183-184 183Zm0-240-56-56 240-240 240 240-56 56-184-183-184 183Z"/></svg>
+                    </li>
                 {/each}
             </ul>
         </div>   
@@ -55,6 +111,11 @@
 
 
 <style>
+    .nothingThere{
+        display: flex;
+        justify-content: center;
+    }
+
     .optionList{
         max-height: 65vh;
     }

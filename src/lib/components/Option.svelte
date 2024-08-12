@@ -1,7 +1,7 @@
 <script>
     import {createEventDispatcher} from 'svelte';
     import {rotateIcon} from "$lib/ui_logic";
-    import {deleteOption, editOption} from "../stores/optionStore";
+    import {deleteOption, editOption, selectOption} from "../stores/optionStore";
     export let option;
     export const optionIndex = null;
 
@@ -15,8 +15,8 @@
 </script>
 
 <li class="option">
-    <input type="checkbox" id="option-{option.id}">
-    <label class="custom-checkbox" for="option-{option.id}">
+    <input type="checkbox" id="option-{option.id}" checked={option.selected} on:change={() => selectOption(option.id)}>
+    <label class="custom-checkbox" for="option-{option.id}" >
         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="transparent"><path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/></svg>
     </label>
     <label for="option-{option.id}" class="optionText">
@@ -123,10 +123,10 @@
         fill: #6d28d9;
     }
 
-    input[type="checkbox"]:checked ~.optionText{
+    /* input[type="checkbox"]:checked ~.optionText{
         color: green;
         text-decoration: line-through;
-    }
+    } */
 
     input[type="checkbox"]{
         display: none;
