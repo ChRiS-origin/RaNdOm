@@ -1,31 +1,134 @@
 <script>
-    import { getRandomOrder, result_order } from "$lib/stores/resultStore";
-    import { changeOverlayContent, rotateIcon } from "$lib/ui_logic";
-    import {flip} from 'svelte/animate';
+    import {result_order } from "$lib/stores/resultStore";
 </script>
 
 <div class="m-2 mt-0 mb-0 flex flex-row h-8">
-    <h2 class="flex-grow text-2xl">Results:<span class="ml-2">Random-list</span></h2>
-    <button type="button" on:click={() => { rotateIcon(); getRandomOrder();}} class="flex-none ml-2 w-8 h-8 text-zinc-500 dark:text-zinc-400 bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 focus:outline-none focus:ring-2 focus:ring-zinc-200 dark:focus:ring-zinc-700 rounded-lg text-sm p-1">
-        <div class="flex justify-center items-center">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 flex-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-              </svg>
-        </div>
+    <p>fuckyou</p>
+</div>
+
+<!-- {#each $result_selection as result, resultSelectionIndex (result.id)}
+                        <ResultSelection/>
+                        {:else}
+                            <li class="nothingThere">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="m296-224-56-56 240-240 240 240-56 56-184-183-184 183Zm0-240-56-56 240-240 240 240-56 56-184-183-184 183Z"/></svg>
+                            </li>
+                        {/each} -->
+
+<li class="option">
+    <input type="checkbox" id="option-{option.id}" checked={option.selected} on:change={() => selectOption(option.id)}>
+    <label class="custom-checkbox" for="option-{option.id}" >
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="transparent"><path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/></svg>
+    </label>
+    <label for="option-{option.id}" class="optionText">
+        <form>
+            <input id="optionInput" type="text" bind:value={option.text} autocomplete="off" on:click={handleSubmit(option.id, option.text)}>
+        </form>
+    </label>
+    <button class="deleteButton" on:click={deleteOption(option.id)}>
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f5d5d"><path d="m376-300 104-104 104 104 56-56-104-104 104-104-56-56-104 104-104-104-56 56 104 104-104 104 56 56Zm-96 180q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520Zm-400 0v520-520Z"/></svg>
     </button>
-</div>
-<div class="mt-4 mb-2 h-[calc(100%_-_theme('height.16')_-_theme('height.8')_-_theme('margin.8'))] overflow-auto">
-    {#each $result_order as result_option, index (result_option.id)}
-        <div class="m-auto w-full flex mt-1 items-center" animate:flip="{{duration: 300}}">
-            <div class="flex justify-center items-center h-8 w-8">
-                <span class="h-8 w-7 text-right pr-2 mx-2">{index+1}.</span>
-            </div>
-            <div class="flex items-center shadow appearance-none border rounded h-8 w-full py-2 px-3 leading-tight dark:bg-zinc-900 dark:border-zinc-500 focus:dark:bg-zinc-800 mb-1">
-                <span class="flex-1 text-center overflow-auto">{#if result_option.text !== '' } {result_option.text} {:else} &nbsp; {/if}</span>
-            </div>
-        </div>
-    {/each}
-</div>
-<button id="close-overlay-btn" type="button" on:click={() => {rotateIcon(); changeOverlayContent('result-selection');}} class="w-full h-16 mb-2 justify-center bg-violet-600  dark:bg-violet-700 text-white dark:text-zinc-100 hover:bg-violet-600 dark:hover:bg-violet-800 focus:outline-none focus:ring-2 focus:ring-zinc-200 dark:focus:ring-zinc-700 rounded-lg text-2xl p-2.5">
-    Selection
-</button>
+</li>
+
+
+<style>
+    #optionInput{
+        box-sizing: border-box;
+        padding: 1px 20px;
+        width: 100%;
+        background: none;
+        border: none;
+        border-radius: 1000px;
+        font: inherit;
+        caret-color: #ff007b;
+    }
+
+    ::placeholder {
+        color: inherit;
+        opacity: 1; /* Firefox */
+        }
+
+    #optionInput:focus{
+        outline: none;
+    }
+
+    form{
+        position: relative;
+    }
+    .option{
+        margin-bottom: 10px;
+        padding: 0 16px;
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        background-color: #08080973;
+    }
+
+    .option .optionText{
+        padding: 15px;
+        padding-right: 0;
+        flex-grow: 1;
+        transition: 0.2ms ease;
+    }
+    
+    .deleteButton{
+        padding: 3px;
+        background: none;
+        border: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    }
+    
+    .deleteButton:active{
+        background-color: rgb(105, 15, 15);
+        border-radius: 10px;
+    }
+    
+    .deleteButton:focus{
+        outline: none;
+    }
+
+    .deleteButton:focus svg{
+        fill:red;
+        outline: none;
+    }
+
+    .deleteButton svg{
+        transition: 0.2ms ease;
+    }
+
+    .deleteButton:hover svg{
+        fill:red;
+    }
+    
+    .custom-checkbox{
+        border: 2px solid #ff007b77;
+        border-radius: 50%;
+        min-height: 20px;
+        min-width: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-shrink: 0;
+        transition: 0.2ms ease;
+        cursor: pointer;
+    }
+
+    input[type="checkbox"]:checked ~.custom-checkbox{
+        background-color: none;
+    }
+
+    input[type="checkbox"]:checked ~.custom-checkbox svg{
+        fill: #6d28d9;
+    }
+
+    /* input[type="checkbox"]:checked ~.optionText{
+        color: green;
+        text-decoration: line-through;
+    } */
+
+    input[type="checkbox"]{
+        display: none;
+    }
+</style>

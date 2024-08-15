@@ -2,6 +2,7 @@
     import Overlay from '$lib/components/Overlay.svelte';
     import OptionsList from '$lib/components/OptionsList.svelte';
     import {rotateIcon} from "$lib/ui_logic";
+    import {getRandom, getRandomOrder} from "$lib/stores/resultStore";
     
     export let showOverlay = false;
 
@@ -25,7 +26,7 @@
 <Overlay {showOverlay} {RandMode} on:click={toggleOverlay}/>
 <OptionsList/>
 <div>
-    <button class="button" on:click={() => {rotateIcon(); toggleOverlay();}}>
+    <button class="button" on:click={() => { if (RandMode === 'Random') {getRandom()} else {getRandomOrder()};{rotateIcon()}; rotateIcon(); toggleOverlay();}}>
         R@ŊðØm
     </button>
 </div>

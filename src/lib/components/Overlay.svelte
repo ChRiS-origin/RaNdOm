@@ -1,12 +1,17 @@
 <script>
+	import { getRandom, getRandomOrder } from "$lib/stores/resultStore";
+	import { rotateIcon } from "$lib/ui_logic";
+
     export let showOverlay = false;
     export let RandMode;
-    const RunAgain = () => {
-    };
-    // import {overlayContent, rotateIcon, toggleOverlay} from '$lib/ui_logic';
+    import {result_selection, result_order} from "../stores/resultStore";
+	import ResultOrder from './ResultOrder.svelte';
+    import ResultSelection from './ResultSelection.svelte';
+
+
+
+    // import {rotateIcon, toggleOverlay} from '$lib/ui_logic';
     // import { onMount } from 'svelte';
-    // import ResultOrder from './ResultOrder.svelte';
-    // import ResultSelection from './ResultSelection.svelte';
 
     // let touchstartX = 0
     // let touchendX = 0
@@ -58,19 +63,37 @@
                     »Your result«
                 </li>
                 <li class="flex-item">
-                    <button id="again" class="OverlayButton again" on:click={RunAgain}>
+                        <button id="again" class="OverlayButton again" on:click={() => { if (RandMode === 'Random') {getRandom()} else {getRandomOrder()};{rotateIcon()}}}>
                         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M480-160q-134 0-227-93t-93-227q0-134 93-227t227-93q69 0 132 28.5T720-690v-110h80v280H520v-80h168q-32-56-87.5-88T480-720q-100 0-170 70t-70 170q0 100 70 170t170 70q77 0 139-44t87-116h84q-28 106-114 173t-196 67Z"/></svg>
                     </button>
                 </li>
             </ul>
-            <p> 
-                {RandMode}
-            </p>
+            <div class="overflow-auto">
+                <ul class="flex-container">
+                    <li class="flex-item">
+                        {#if RandMode === 'Random'}
+                        <ResultSelection/>
+                        {:else if RandMode === 'Random-list'}
+                        <ResultOrder/>
+                        {:else}
+                        <span>Error: specified content not found</span>
+                        {/if}
+                        <!-- <p> 
+                            {RandMode}
+                        </p> -->
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>    
 {/if}
 
 <style>
+    .nothingThere{
+        display: flex;
+        justify-content: center;
+    }
+
     .backdrop{
         width: 100%;
         min-height: 100vh;
@@ -167,3 +190,13 @@
     }
     
 </style>
+
+
+
+<!-- const gettry = () =>{
+    alert('try');
+};
+const gettry2 = () =>{
+    alert('try2');
+}; -->
+<!-- <button id="again" class="OverlayButton again" on:click={() => { if (RandMode === 'Random') {gettry()} else {gettry2()};{rotateIcon()}}}> -->

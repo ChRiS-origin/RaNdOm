@@ -1,5 +1,4 @@
 <script>
-    import {createEventDispatcher} from 'svelte';
     import {rotateIcon} from "$lib/ui_logic";
     import {deleteOption, editOption, selectOption} from "../stores/optionStore";
     export let option;
