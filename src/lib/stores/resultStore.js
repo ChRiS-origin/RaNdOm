@@ -3,16 +3,20 @@ import { options } from "./optionStore";
 
 export const result_selection = writable({
     text: "",
-    selected: false,
+    selected: true,
     id: 0
 });
-export const result_order = writable([]);
+
+export const result_order = writable([]);  
 
 export const getRandom = () => {
-    let opts = get(options);
-    if (opts.length > 0) {
-        result_selection.update(() => opts[Math.floor(Math.random()*opts.length)]);
+    let opts = writable(get(options));
+    opts.update(opts => opts.filter(opt => opt.selected));
+    let fixOpts = get(opts);
+    if (fixOpts.length > 0) {
+        result_selection.update(() => fixOpts[Math.floor(Math.random()*fixOpts.length)]);
     }
+    else { result_selection.update(() => fixOpts);}
 };
 
 function shuffle(array) {
@@ -30,9 +34,10 @@ function shuffle(array) {
   }
 
 export const getRandomOrder = () => {
-    let opts = get(options);
-    
-    result_order.update(() => shuffle([...opts]));
+    let opts = writable(get(options));
+    opts.update(opts => opts.filter(opt => opt.selected));
+    let fixOpts = get(opts);
+    result_order.update(() => shuffle([...fixOpts]));
 };
 
 export const getBothResults = () => {

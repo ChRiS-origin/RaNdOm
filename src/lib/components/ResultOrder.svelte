@@ -1,17 +1,23 @@
 <script>
-    import {result_order } from "$lib/stores/resultStore";
-    // export let resultRand;
-    // export const resultRandIndex = null;
+    import {getRandomOrder, result_order } from "$lib/stores/resultStore";
+    import {deleteOption, editOption, selectOption} from "../stores/optionStore";
+    
+
+    const handleSubmit = (id, NewOption) => {
+            if (NewOption !== '') {
+                editOption(id, NewOption);
+                console.log("stored resultSelection:", NewOption);
+        }
+        setTimeout(rotateIcon);
+    }
 </script>
 
-<div class="m-2 mt-0 mb-0 flex flex-row h-8">
-    <p>fuckyou</p>
-</div>
+
 <div class="overflow-auto">
     <ul id="optionList" class="optionList  w-full">
-        {#each $result_order as resultRand, resultRandIndex (resultRand.id)}
+        {#each $result_order as resultRand}
             <li class="option">
-                <input type="checkbox" id="option-{resultRand.id}" checked={resultRand.selected} on:change={() => selectOption(resultRand.id)}>
+                <input type="checkbox" id="option-{resultRand.id}" checked={resultRand.selected} on:change={() => selectOption(resultRand.id)} on:click={() => {getRandomOrder(); rotateIcon()}}>
                 <label class="custom-checkbox" for="option-{resultRand.id}" >
                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="transparent"><path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/></svg>
                 </label>
@@ -20,7 +26,7 @@
                         <input id="optionInput" type="text" bind:value={resultRand.text} autocomplete="off" on:click={handleSubmit(resultRand.id, resultRand.text)}>
                     </form>
                 </label>
-                <button class="deleteButton" on:click={deleteOption(resultRand.id)}>
+                <button class="deleteButton" on:click={deleteOption(resultRand.id)} on:click={() => {getRandomOrder();rotateIcon()}}>
                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f5d5d"><path d="m376-300 104-104 104 104 56-56-104-104 104-104-56-56-104 104-104-104-56 56 104 104-104 104 56 56Zm-96 180q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520Zm-400 0v520-520Z"/></svg>
                 </button>
             </li>
@@ -33,6 +39,21 @@
 </div>
 
 <style>
+
+    
+    .nothingThere{
+        position: relative;
+        margin-top: 10%;
+        margin-left: 29.5vw; 
+    }
+
+    .optionList{
+        height: 10vh;
+        min-height: 50vh;
+        padding-left: 0px;
+        min-width: 60vw;
+        max-width: 75vw;
+    }
     #optionInput{
         box-sizing: border-box;
         padding: 1px 20px;
@@ -57,8 +78,8 @@
         position: relative;
     }
     .option{
-        margin-bottom: 10px;
-        padding: 0 16px;
+        margin-bottom: -1px;
+        height: 10vh;
         border-radius: 15px;
         display: flex;
         align-items: center;
@@ -66,14 +87,16 @@
     }
 
     .option .optionText{
-        padding: 15px;
-        padding-right: 0;
+        padding: 0px;
+        padding-left: 0;
+        padding-right: 0px;
         flex-grow: 1;
         transition: 0.2ms ease;
+        text-align: center;
     }
     
     .deleteButton{
-        padding: 3px;
+        padding: 0px;
         background: none;
         border: none;
         display: flex;
@@ -133,4 +156,13 @@
     input[type="checkbox"]{
         display: none;
     }
+
+    @media(max-width: 500px){
+        .nothingThere{
+            position: relative;
+            margin-top: 50%;
+            margin-left: 26.5vw; 
+        }
+    }
+    
 </style>

@@ -1,10 +1,9 @@
 <script>
-	import {result_selection, getRandom, getRandomOrder } from "$lib/stores/resultStore";
+	import { getRandom, getRandomOrder } from "$lib/stores/resultStore";
 	import { rotateIcon } from "$lib/ui_logic";
 
     export let showOverlay = false;
     export let RandMode;
-    import {result_order} from "../stores/resultStore";
 	import ResultOrder from './ResultOrder.svelte';
     import ResultSelection from './ResultSelection.svelte';
 
@@ -64,13 +63,13 @@
                 </li>
                 <li class="flex-item">
                         <button id="again" class="OverlayButton again" on:click={() => { if (RandMode === 'Random') {getRandom()} else {getRandomOrder()};{rotateIcon()}}}>
-                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M480-160q-134 0-227-93t-93-227q0-134 93-227t227-93q69 0 132 28.5T720-690v-110h80v280H520v-80h168q-32-56-87.5-88T480-720q-100 0-170 70t-70 170q0 100 70 170t170 70q77 0 139-44t87-116h84q-28 106-114 173t-196 67Z"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M314-115q-104-48-169-145T80-479q0-26 2.5-51t8.5-49l-46 27-40-69 191-110 110 190-70 40-54-94q-11 27-16.5 56t-5.5 60q0 97 53 176.5T354-185l-40 70Zm306-485v-80h109q-46-57-111-88.5T480-800q-55 0-104 17t-90 48l-40-70q50-35 109-55t125-20q79 0 151 29.5T760-765v-55h80v220H620ZM594 0 403-110l110-190 69 40-57 98q118-17 196.5-107T800-480q0-11-.5-20.5T797-520h81q1 10 1.5 19.5t.5 20.5q0 135-80.5 241.5T590-95l44 26-40 69Z"/></svg>
                     </button>
                 </li>
             </ul>
-            <div class="overflow-auto">
+            <div class="space">
                 <ul class="flex-container">
-                    <li class="flex-item">
+                    <li class="flex-itemList">
                         {#if RandMode === 'Random'}
                             <ResultSelection/>
                         {:else if RandMode === 'Random-list'}
@@ -86,9 +85,8 @@
 {/if}
 
 <style>
-    .nothingThere{
-        display: flex;
-        justify-content: center;
+    .space{
+        margin-top: 15px;
     }
 
     .backdrop{
@@ -104,8 +102,9 @@
         padding: 3px;
         border-radius: 10px;
         width: 93vw;
-        min-width: 368px;
-        margin: 10% auto;
+        min-width: 350px;
+        min-height: 60vh;
+        margin: 10vh auto;
         background: #18181b54;
         backdrop-filter: blur(1.3px);
         box-shadow: 0px 0px 1px 1px rgba(255, 255, 255, 0.436) inset;
@@ -131,6 +130,16 @@
         width: 200px;
         margin-top: 15px;
         margin-bottom: -40px;
+        line-height: 120px;
+        font-size: 1.3rem;
+        text-align: center;
+    }
+
+    .flex-itemList{
+        position: relative;
+        height: 100%;
+        min-width: 1vw;
+        margin-top: 5vh;
         line-height: 120px;
         font-size: 1.3rem;
         text-align: center;

@@ -12,6 +12,7 @@
                 console.log("stored option:", optionInput);
                 optionInput = '';
                 inputField.value = '';
+                inputField.focus();
         }
         setTimeout(rotateIcon);
     }
