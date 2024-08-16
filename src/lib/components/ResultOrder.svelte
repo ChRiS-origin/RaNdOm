@@ -1,34 +1,36 @@
 <script>
     import {result_order } from "$lib/stores/resultStore";
+    // export let resultRand;
+    // export const resultRandIndex = null;
 </script>
 
 <div class="m-2 mt-0 mb-0 flex flex-row h-8">
     <p>fuckyou</p>
 </div>
-
-<!-- {#each $result_selection as result, resultSelectionIndex (result.id)}
-                        <ResultSelection/>
-                        {:else}
-                            <li class="nothingThere">
-                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="m296-224-56-56 240-240 240 240-56 56-184-183-184 183Zm0-240-56-56 240-240 240 240-56 56-184-183-184 183Z"/></svg>
-                            </li>
-                        {/each} -->
-
-<li class="option">
-    <input type="checkbox" id="option-{option.id}" checked={option.selected} on:change={() => selectOption(option.id)}>
-    <label class="custom-checkbox" for="option-{option.id}" >
-        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="transparent"><path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/></svg>
-    </label>
-    <label for="option-{option.id}" class="optionText">
-        <form>
-            <input id="optionInput" type="text" bind:value={option.text} autocomplete="off" on:click={handleSubmit(option.id, option.text)}>
-        </form>
-    </label>
-    <button class="deleteButton" on:click={deleteOption(option.id)}>
-        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f5d5d"><path d="m376-300 104-104 104 104 56-56-104-104 104-104-56-56-104 104-104-104-56 56 104 104-104 104 56 56Zm-96 180q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520Zm-400 0v520-520Z"/></svg>
-    </button>
-</li>
-
+<div class="overflow-auto">
+    <ul id="optionList" class="optionList  w-full">
+        {#each $result_order as resultRand, resultRandIndex (resultRand.id)}
+            <li class="option">
+                <input type="checkbox" id="option-{resultRand.id}" checked={resultRand.selected} on:change={() => selectOption(resultRand.id)}>
+                <label class="custom-checkbox" for="option-{resultRand.id}" >
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="transparent"><path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/></svg>
+                </label>
+                <label for="option-{resultRand.id}" class="optionText">
+                    <form>
+                        <input id="optionInput" type="text" bind:value={resultRand.text} autocomplete="off" on:click={handleSubmit(resultRand.id, resultRand.text)}>
+                    </form>
+                </label>
+                <button class="deleteButton" on:click={deleteOption(resultRand.id)}>
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f5d5d"><path d="m376-300 104-104 104 104 56-56-104-104 104-104-56-56-104 104-104-104-56 56 104 104-104 104 56 56Zm-96 180q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520Zm-400 0v520-520Z"/></svg>
+                </button>
+            </li>
+        {:else}
+            <li class="nothingThere">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q54 0 104-17.5t92-50.5L228-676q-33 42-50.5 92T160-480q0 134 93 227t227 93Zm252-124q33-42 50.5-92T800-480q0-134-93-227t-227-93q-54 0-104 17.5T284-732l448 448Z"/></svg>
+            </li>
+        {/each}
+    </ul>
+</div>
 
 <style>
     #optionInput{

@@ -16,51 +16,7 @@
         setTimeout(rotateIcon);
     }
 
-    import {flip} from 'svelte/animate';
-
-    // let hovering = -1;
     let allSelected = false;
-
-    // const drop = (event, target) => {
-    //     event.dataTransfer.dropEffect = 'move'; 
-    //     const start = parseInt(event.dataTransfer.getData("text/plain"));
-    //     options.update((options) => {
-    //         if (start < target) {
-    //             options.splice(target + 1, 0, options[start]);
-    //             options.splice(start, 1);
-    //         } else {
-    //             options.splice(target, 0, options[start]);
-    //             options.splice(start + 1, 1);
-    //         }
-    //         return options;
-    //     });
-
-    //     hovering = -1;
-    // }
-
-    // const dragstart = (event, i, id) => {
-        
-    //     document.getElementById('edit-option-' + id).blur();
-    //     event.dataTransfer.effectAllowed = 'move';
-    //     event.dataTransfer.dropEffect = 'move';
-    //     const start = i;
-    //     event.dataTransfer.setData('text/plain', start);
-    // }
-
-    // options.subscribe(options => {
-    //     for (let i = 0; i < options.length; i++) {
-    //         if (!options[i].selected) {
-    //             allSelected = false;
-    //             return options;
-    //         }
-    //     }
-    //     if (options.length > 0) {
-    //         allSelected = true;
-    //     } else {
-    //         allSelected = false;
-    //     }
-    //     return options;
-    // });
 </script>
 
 <bodyOptions>
@@ -83,21 +39,9 @@
                 </button>
             </li>
         </ul>
-        <!-- <p>
-            Hello {optionInput || 'nothing'}!
-        </p> -->
         <div class="overflow-auto">
             <ul id="optionList" class="optionList  w-full">
                 {#each $options as option, optionIndex (option.id)}
-                <!-- <div animate:flip="{{duration: 300}}"
-                    draggable={true} 
-                    on:dragstart={event => dragstart(event, optionIndex, option.id)}
-                    on:drop|preventDefault={event => drop(event, optionIndex)}
-                    ondragover="return false"
-                    on:dragenter={() => hovering = optionIndex}
-                    class:is-hovering={hovering === optionIndex}>
-                    <Option option={option} optionIndex={optionIndex} on:delete={deleteOption}/>
-                </div> -->
                 <Option option={option} optionIndex={optionIndex}/>
                 {:else}
                     <li class="nothingThere">

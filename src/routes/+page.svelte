@@ -22,11 +22,11 @@
     };
 </script>
 
-<NavBar {RandMode} on:click={handleClick}/>
+<NavBar {RandMode} on:click={() => { if (RandMode === 'Random') {getRandom()} else {getRandomOrder()}; rotateIcon(); handleClick();}}/>
 <Overlay {showOverlay} {RandMode} on:click={toggleOverlay}/>
 <OptionsList/>
 <div>
-    <button class="button" on:click={() => { if (RandMode === 'Random') {getRandom()} else {getRandomOrder()};{rotateIcon()}; rotateIcon(); toggleOverlay();}}>
+    <button class="button" on:click={() => { if (RandMode === 'Random') {getRandom()} else {getRandomOrder()}; rotateIcon();toggleOverlay();}}>
         R@ŊðØm
     </button>
 </div>

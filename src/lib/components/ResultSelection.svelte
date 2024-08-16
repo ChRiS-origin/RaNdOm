@@ -2,7 +2,7 @@
     import {result_selection} from "$lib/stores/resultStore";
     import {rotateIcon } from "$lib/ui_logic";
     import {deleteOption, editOption, selectOption} from "../stores/optionStore";
-    export const resultSelectionIndex = null;
+    
 
     const handleSubmit = (id, NewOption) => {
             if (NewOption !== '') {
@@ -14,20 +14,20 @@
 </script>
 
 <li class="option">
-    <input type="checkbox" id="option-{result_selection.id}" checked={result_selection.selected} on:change={() => selectOption(result_selection.id)}>
-    <label class="custom-checkbox" for="option-{result_selection.id}" >
+    <input type="checkbox" id="option-{$result_selection.id}" checked={$result_selection.selected} on:change={() => selectOption($result_selection.id)}>
+    <label class="custom-checkbox" for="option-{$result_selection.id}" >
         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="transparent"><path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/></svg>
     </label>
-    <label for="option-{result_selection.id}" class="optionText">
+    <label for="option-{$result_selection.id}" class="optionText">
         <form>
-            <input id="optionInput" type="text" bind:value={result_selection.text} autocomplete="off" on:click={handleSubmit(result_selection.id, result_selection.text)}>
+            <input id="optionInput" type="text" bind:value={$result_selection.text} autocomplete="off" on:click={handleSubmit($result_selection.id, $result_selection.text)}>
         </form>
     </label>
-    <button class="deleteButton" on:click={deleteOption(result_selection.id)}>
+    <button class="deleteButton" on:click={deleteOption($result_selection.id)}>
         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f5d5d"><path d="m376-300 104-104 104 104 56-56-104-104 104-104-56-56-104 104-104-104-56 56 104 104-104 104 56 56Zm-96 180q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520Zm-400 0v520-520Z"/></svg>
     </button>
 </li>
-<p>{result_selection.text}</p>
+<p>{$result_selection.text}</p>
 
 <!-- <li class="option">
     <input type="checkbox" id="option-{option.id}" checked={option.selected} on:change={() => selectOption(option.id)}>

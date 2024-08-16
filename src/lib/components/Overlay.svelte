@@ -1,10 +1,10 @@
 <script>
-	import { getRandom, getRandomOrder } from "$lib/stores/resultStore";
+	import {result_selection, getRandom, getRandomOrder } from "$lib/stores/resultStore";
 	import { rotateIcon } from "$lib/ui_logic";
 
     export let showOverlay = false;
     export let RandMode;
-    import {result_selection, result_order} from "../stores/resultStore";
+    import {result_order} from "../stores/resultStore";
 	import ResultOrder from './ResultOrder.svelte';
     import ResultSelection from './ResultSelection.svelte';
 
@@ -72,15 +72,12 @@
                 <ul class="flex-container">
                     <li class="flex-item">
                         {#if RandMode === 'Random'}
-                        <ResultSelection/>
+                            <ResultSelection/>
                         {:else if RandMode === 'Random-list'}
-                        <ResultOrder/>
+                            <ResultOrder/>
                         {:else}
                         <span>Error: specified content not found</span>
                         {/if}
-                        <!-- <p> 
-                            {RandMode}
-                        </p> -->
                     </li>
                 </ul>
             </div>
