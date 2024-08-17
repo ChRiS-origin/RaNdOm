@@ -128,7 +128,7 @@
 
     .optionHead{
         margin-bottom: 10px;
-        padding: 0 90px;
+        padding: 0 80px;
         border-radius: 15px;
         display: flex;
         align-items: center;

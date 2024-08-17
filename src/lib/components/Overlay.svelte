@@ -94,7 +94,7 @@
         min-height: 100vh;
         position: fixed;
         background: rgba(0, 0, 0, 0.8);
-        backdrop-filter: blur(0.8px);
+        backdrop-filter: blur(5px);
         z-index: 99;
     }
 
