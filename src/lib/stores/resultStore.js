@@ -1,5 +1,5 @@
-import { get, writable } from "svelte/store";
-import { options } from "./optionStore";
+import {get, writable} from "svelte/store";
+import {options} from "./optionStore";
 
 export const result_selection = writable({
     text: "",
@@ -25,11 +25,9 @@ function shuffle(array) {
     while (currentIndex != 0) {
       randomIndex = Math.floor(Math.random() * currentIndex);
       currentIndex--;
-  
       [array[currentIndex], array[randomIndex]] = [
         array[randomIndex], array[currentIndex]];
     }
-  
     return array;
   }
 
@@ -39,8 +37,3 @@ export const getRandomOrder = () => {
     let fixOpts = get(opts);
     result_order.update(() => shuffle([...fixOpts]));
 };
-
-export const getBothResults = () => {
-    getRandom();
-    getRandomOrder();
-}

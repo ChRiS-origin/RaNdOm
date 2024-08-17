@@ -1,8 +1,9 @@
 <script>
     import {rotateIcon} from "$lib/ui_logic";
-    import {options, addOption, deleteOption, selectAllOption, deselectAllOption, deleteSelectedOption, selectOption} from "../stores/optionStore";
+    import {options, addOption, selectAllOption, deselectAllOption, deleteSelectedOption} from "../stores/optionStore";
 	import Option from "./Option.svelte";
     
+    let allSelected = false;
     let optionInput="";
     let inputField;
 
@@ -15,9 +16,7 @@
                 inputField.focus();
         }
         setTimeout(rotateIcon);
-    }
-
-    let allSelected = false;
+    }    
 </script>
 
 <bodyOptions>
@@ -64,6 +63,7 @@
     .optionList{
         max-height: 65vh;
     }
+    
     bodyOptions{
         padding: 10px;
         display: flex;
@@ -119,9 +119,11 @@
         color: #f2eee2;
         outline: none;
     }
+
     #addButton:active{
         color: #f2eee2;
     }
+
     #addButton:hover{
         color: #f2eee2;
     }
@@ -193,11 +195,6 @@
 
     input[type="checkbox"]:checked ~.custom-checkbox svg{
         fill: #6d28d9;
-    }
-
-    input[type="checkbox"]:checked ~.optionText{
-        color: green;
-        text-decoration: line-through;
     }
 
     input[type="checkbox"]{

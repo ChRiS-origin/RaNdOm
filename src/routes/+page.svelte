@@ -41,6 +41,7 @@
         z-index: -1;
         transition: background-color 0.3s
     }
+    
     :global(body.dark-mode) {
         background-color: #f2eee2;
         color: black;

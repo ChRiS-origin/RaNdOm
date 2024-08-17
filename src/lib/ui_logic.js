@@ -4,6 +4,7 @@ export const rotateIcon = () => {
     const icon2 = document.getElementById("dark-random-icon");
     rotate(icon2);
 }
+
 const rotate = (icon) =>{
     icon.classList.add('rotate-360');
     setTimeout(() => {

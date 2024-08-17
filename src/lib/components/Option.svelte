@@ -6,7 +6,7 @@
 
     const handleSubmit = (id, NewOption) => {
             if (NewOption !== '') {
-                editOption(option.id, NewOption);
+                editOption(id, NewOption);
                 console.log("stored option:", NewOption);
         }
         setTimeout(rotateIcon);
@@ -43,7 +43,7 @@
 
     ::placeholder {
         color: inherit;
-        opacity: 1; /* Firefox */
+        opacity: 1;
         }
 
     #optionInput:focus{
@@ -121,11 +121,6 @@
     input[type="checkbox"]:checked ~.custom-checkbox svg{
         fill: #6d28d9;
     }
-
-    /* input[type="checkbox"]:checked ~.optionText{
-        color: green;
-        text-decoration: line-through;
-    } */
 
     input[type="checkbox"]{
         display: none;

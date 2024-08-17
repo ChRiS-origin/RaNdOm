@@ -1,7 +1,6 @@
-import { writable } from "svelte/store";
+import {writable} from "svelte/store";
 
 export const options = writable([]);
-
 
 export const addOption = (text) => {
     options.update((cur) => {
@@ -25,8 +24,7 @@ export const selectOption = (id) => {
                 options[i].selected = !options[i].selected;
                 break;
             }
-        }
-        
+        } 
         return options;
     });
 }
@@ -36,7 +34,6 @@ export const selectAllOption = () => {
         for (let i = 0; i < options.length; i++) {
             options[i].selected = true;
         }
-
         return options;
     });
 }
@@ -46,7 +43,6 @@ export const deselectAllOption = () => {
         for (let i = 0; i < options.length; i++) {
             options[i].selected = false;
         }
-
         return options;
     });
 }
@@ -61,7 +57,6 @@ export const editOption = (id, newtext) => {
                 break;
             }
         }
-
         return options;
     });
 }

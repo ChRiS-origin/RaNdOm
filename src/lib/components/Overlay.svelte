@@ -1,52 +1,11 @@
 <script>
-	import { getRandom, getRandomOrder } from "$lib/stores/resultStore";
-	import { rotateIcon } from "$lib/ui_logic";
+	import {getRandom, getRandomOrder} from "$lib/stores/resultStore";
+	import {rotateIcon} from "$lib/ui_logic";
 
     export let showOverlay = false;
     export let RandMode;
 	import ResultOrder from './ResultOrder.svelte';
     import ResultSelection from './ResultSelection.svelte';
-
-
-
-    // import {rotateIcon, toggleOverlay} from '$lib/ui_logic';
-    // import { onMount } from 'svelte';
-
-    // let touchstartX = 0
-    // let touchendX = 0
-    // let touchstartY = 0
-    // let touchendY = 0
-
-    // let screenWidth40 = null;
-
-    // onMount(() => {
-    //     const slider = document.getElementById('main');
-
-    //     function handleGesture() {
-    //         let angle = Math.atan((touchendY -touchstartY) / (touchendX - touchstartX)) / Math.PI * 180;
-    //         if (Math.abs(angle) < 25 && (Math.abs(touchendX - touchstartX) > (window.screen.width * 0.4) || Math.abs(touchendX - touchstartX) > 240)) {
-    //             if (touchendX < touchstartX) {
-    //                 toggleOverlay();
-    //             }
-    //             if (touchendX > touchstartX) {
-    //                 toggleOverlay();
-    //             }
-    //         }
-    //     }
-
-    //     slider.addEventListener('touchstart', e => {
-    //         touchstartX = e.changedTouches[0].screenX;
-    //         touchstartY = e.changedTouches[0].screenY;
-    //     })
-
-    //     slider.addEventListener('touchend', e => {
-    //         touchendX = e.changedTouches[0].screenX;
-    //         touchendY = e.changedTouches[0].screenY;
-    //         handleGesture();
-    //     })
-
-    //     screenWidth40 = window.screen.width * 0.4;
-    // });
 </script>
 
 {#if showOverlay}
@@ -75,7 +34,7 @@
                         {:else if RandMode === 'Random-list'}
                             <ResultOrder/>
                         {:else}
-                        <span>Error: specified content not found</span>
+                            <span>Error: specified content not found</span>
                         {/if}
                     </li>
                 </ul>
@@ -94,7 +53,7 @@
         min-height: 100vh;
         position: fixed;
         background: rgba(0, 0, 0, 0.8);
-        backdrop-filter: blur(5px);
+        backdrop-filter: blur(2.5px);
         z-index: 99;
     }
 
@@ -162,7 +121,6 @@
         box-shadow: 1px 1px 8px rgba(255, 255, 255, 0.436) inset, 10px 10px #18181b inset;
     }
      
-
     .closeOverlay:focus{
         background-color: #a0195a;
     }
@@ -187,22 +145,10 @@
     .again:active{
         background-color: rgba(82, 42, 176, 0.987);
     }
-    
 
     @media(max-width: 401px){ 
         .flex-item{
             font-size: 1.1rem;
         }
     }
-    
 </style>
-
-
-
-<!-- const gettry = () =>{
-    alert('try');
-};
-const gettry2 = () =>{
-    alert('try2');
-}; -->
-<!-- <button id="again" class="OverlayButton again" on:click={() => { if (RandMode === 'Random') {gettry()} else {gettry2()};{rotateIcon()}}}> -->

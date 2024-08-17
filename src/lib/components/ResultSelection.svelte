@@ -1,7 +1,7 @@
 <script>
     import {result_selection, getRandom} from "$lib/stores/resultStore";
-    import {rotateIcon } from "$lib/ui_logic";
     import {deleteOption, editOption, selectOption} from "../stores/optionStore";
+    import {rotateIcon } from "$lib/ui_logic";
 
     const handleSubmit = (id, NewOption) => {
             if (NewOption !== '') {
@@ -51,7 +51,7 @@
 
     ::placeholder {
         color: inherit;
-        opacity: 1; /* Firefox */
+        opacity: 1;
         }
 
     #optionInput:focus{
@@ -61,6 +61,7 @@
     form{
         position: relative;
     }
+
     .option{
         min-width: 60vw;
         max-width: 75vw;
@@ -74,7 +75,6 @@
     }
 
     .option .optionText{
-        /* padding: 50px 50px auto; */
         padding-right: 0;
         text-align: center;
         flex-grow: 1;
