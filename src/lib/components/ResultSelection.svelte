@@ -35,9 +35,10 @@
 
 <style>
     .nothingThere{
-        margin-top: 5%;
-        margin-left: 49%; 
+        margin-top: 6vh;
+        margin-left: 29.3vw; 
     }
+
     #optionInput{
         box-sizing: border-box;
         padding: 1px 20px;
@@ -138,11 +139,11 @@
         display: none;
     }
 
-    @media(max-width: 500px){
+    /* @media(max-width: 500px){
         .nothingThere{
             position: relative;
-            margin-top: 20%;
-            margin-left: 27.5vw; 
+            margin-top: 6vh;
+            margin-left: 26.8vw; 
         }
-    }
+    } */
 </style>

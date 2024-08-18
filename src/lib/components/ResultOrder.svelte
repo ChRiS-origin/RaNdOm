@@ -39,9 +39,8 @@
 
 <style>
     .nothingThere{
-        position: relative;
-        margin-top: 10%;
-        margin-left: 29.5vw; 
+        padding-top: 21vh;
+        margin-left: 29.3vw; 
     }
 
     .optionList{
@@ -93,7 +92,7 @@
         transition: 0.2ms ease;
         text-align: center;
     }
-    
+
     .deleteButton{
         padding: 0px;
         background: none;
@@ -151,11 +150,11 @@
         display: none;
     }
 
-    @media(max-width: 500px){
+    /* @media(max-width: 500px){
         .nothingThere{
             position: relative;
             margin-top: 50%;
             margin-left: 26.5vw; 
         }
-    }
+    } */
 </style>

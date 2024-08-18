@@ -61,7 +61,8 @@
     }
 
     .optionList{
-        max-height: 65vh;
+        height: 100%;
+        max-height: 62vh;
     }
     
     bodyOptions{
@@ -101,11 +102,11 @@
 
     #addButton{
         position: absolute;
-        top: 2px;
-        right: 2px;
+        top: 1.9px;
+        right: 1.88px;
         background-color: #ff007b77;
-        height: 93%;
-        padding: 0px 35px;
+        height: 92.5%;
+        padding: 0px 30px;
         border: none;
         border-radius: 1000px;
         font: inherit;

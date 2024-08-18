@@ -56,12 +56,13 @@
         bottom: 0;
         align-items: center;
     }
+
     .button{
         text-align: center;
         min-width: 300px;
         background-color: #6d28d9;
         padding: 5px;
-        margin-bottom: 10px;
+        margin-bottom: 1rem;
         border-radius: 10px;
         border-color: #f2eee2;
         color: #f2eee2;
