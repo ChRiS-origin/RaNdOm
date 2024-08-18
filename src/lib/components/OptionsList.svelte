@@ -76,7 +76,7 @@
     }
 
     .optionList{
-        height: 100%;
+        min-height: 90%;
         max-height: 62vh;
     }
     
