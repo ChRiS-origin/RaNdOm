@@ -77,7 +77,7 @@
 
     .optionList{
         min-height: 90%;
-        max-height: 62vh;
+        max-height: 56vh;
     }
     
     bodyOptions{
