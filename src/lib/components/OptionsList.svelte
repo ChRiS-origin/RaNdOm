@@ -117,7 +117,7 @@
 
     #addButton{
         position: absolute;
-        top: 1.9px;
+        top: 1.8px;
         right: 1.88px;
         background-color: #ff007b77;
         height: 92.5%;
