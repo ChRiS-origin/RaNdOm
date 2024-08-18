@@ -77,7 +77,21 @@
 
     .optionList{
         min-height: 90%;
-        max-height: 56vh;
+        max-height: 69vh;
+    }
+
+    @media(max-height: 915px){
+        .optionList{
+        min-height: 90%;
+        max-height: 64vh;
+        }
+    }
+
+    @media(max-height: 760px){
+        .optionList{
+        min-height: 90%;
+        max-height: 52vh;
+        }
     }
     
     bodyOptions{
