@@ -83,14 +83,28 @@
     @media(max-height: 915px){
         .optionList{
         min-height: 90%;
-        max-height: 64vh;
+        max-height: 58vh;
         }
     }
 
     @media(max-height: 760px){
         .optionList{
         min-height: 90%;
-        max-height: 52vh;
+        max-height: 54vh;
+        }
+    }
+
+    @media(max-height: 635px){
+        .optionList{
+        min-height: 90%;
+        max-height: 40vh;
+        }
+    }
+
+    @media(max-height: 530px){
+        .optionList{
+        min-height: 90%;
+        max-height: 37vh;
         }
     }
     
