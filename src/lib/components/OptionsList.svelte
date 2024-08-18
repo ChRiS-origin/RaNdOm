@@ -3,7 +3,7 @@
     import {options, addOption, selectAllOption, deselectAllOption, deleteSelectedOption} from "../stores/optionStore";
 	import Option from "./Option.svelte";
     
-    let allSelected = false;
+    let allSelected = true;
     let optionInput="";
     let inputField;
 
@@ -16,7 +16,22 @@
                 inputField.focus();
         }
         setTimeout(rotateIcon);
-    }    
+    }   
+
+    options.subscribe(options => {
+        for (let i = 0; i < options.length; i++) {
+            if (!options[i].selected) {
+                allSelected = false;
+                return options;
+            }
+        }
+        if (options.length > 0) {
+            allSelected = true;
+        } else {
+            allSelected = false;
+        }
+        return options;
+    });
 </script>
 
 <bodyOptions>
@@ -42,7 +57,7 @@
         <div class="overflow-auto">
             <ul id="optionList" class="optionList  w-full">
                 {#each $options as option, optionIndex (option.id)}
-                <Option option={option} optionIndex={optionIndex}/>
+                    <Option option={option} optionIndex={optionIndex}/>
                 {:else}
                     <li class="nothingThere">
                         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="m296-224-56-56 240-240 240 240-56 56-184-183-184 183Zm0-240-56-56 240-240 240 240-56 56-184-183-184 183Z"/></svg>

@@ -56,6 +56,8 @@
         }
 
     #optionInput:focus{
+        border: none;
+        background-color: #2e2e34;
         outline: none;
     }
 

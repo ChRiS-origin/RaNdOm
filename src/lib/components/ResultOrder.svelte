@@ -47,6 +47,7 @@
         height: 10vh;
         min-height: 50vh;
         padding-left: 0px;
+        padding-top: 10px;
         min-width: 60vw;
         max-width: 75vw;
     }
@@ -68,6 +69,8 @@
     }
 
     #optionInput:focus{
+        border: none;
+        background-color: #2e2e34;
         outline: none;
     }
 

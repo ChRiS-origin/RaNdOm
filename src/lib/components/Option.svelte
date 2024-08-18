@@ -35,8 +35,7 @@
         padding: 1px 20px;
         width: 100%;
         background: none;
-        border: none;
-        border-radius: 1000px;
+        border-radius: 1px;
         font: inherit;
         caret-color: #ff007b;
     }
@@ -47,12 +46,15 @@
         }
 
     #optionInput:focus{
+        border: none;
+        background-color: #2e2e34;
         outline: none;
     }
 
     form{
         position: relative;
     }
+
     .option{
         margin-bottom: 10px;
         padding: 0 16px;
