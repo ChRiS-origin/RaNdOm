@@ -56,7 +56,7 @@
     }
 
     .option{
-        margin-bottom: 10px;
+        margin-bottom: 5px;
         padding: 0 16px;
         border-radius: 15px;
         display: flex;
@@ -65,7 +65,7 @@
     }
 
     .option .optionText{
-        padding: 15px;
+        padding: 12px;
         padding-right: 0;
         flex-grow: 1;
         transition: 0.2ms ease;
