@@ -3,11 +3,21 @@
     import OptionsList from '$lib/components/OptionsList.svelte';
     import {rotateIcon} from "$lib/ui_logic";
     import {getRandom, getRandomOrder} from "$lib/stores/resultStore";
-    
+
+    import {pushState} from "$app/navigation";
+    import {page} from "$app/stores"
+
+
     export let showOverlay = false;
 
     const toggleOverlay = () => {
             showOverlay =  !showOverlay;
+            pushState('', {
+			showOverlay: {showOverlay}
+		});
+        if (!showOverlay) {
+            history.back()
+        } 
     };
     import NavBar from '$lib/components/NavBar.svelte';
     
@@ -23,7 +33,9 @@
 </script>
 
 <NavBar {RandMode} on:click={() => { if (RandMode === 'Random') {getRandom()} else {getRandomOrder()}; rotateIcon(); handleClick();}}/>
-<Overlay {showOverlay} {RandMode} on:click={toggleOverlay}/>
+{#if $page.state.showOverlay}
+    <Overlay {showOverlay} {RandMode} on:click={toggleOverlay}/>
+{/if}
 <OptionsList/>
 <div>
     <button class="button" on:click={() => { if (RandMode === 'Random') {getRandom()} else {getRandomOrder()}; rotateIcon();toggleOverlay();}}>

@@ -77,7 +77,7 @@
     
     bodyOptions{
         padding: 10px;
-        max-height: calc(100vh - 195px);
+        max-height: calc(100vh - 210px);
         display: flex;
         flex-direction: column;
         align-items: center;
