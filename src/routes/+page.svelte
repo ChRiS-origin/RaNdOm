@@ -31,9 +31,10 @@
     </button>
 </div>
 
+
 <style>
     :global(body) {
-        min-height: 100vh;
+        max-height: 100vh;
         background-color: #18181b;
         background-size: cover;
         font-family:  "Abel", sans-serif;

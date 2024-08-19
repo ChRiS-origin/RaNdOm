@@ -77,6 +77,7 @@
     
     bodyOptions{
         padding: 10px;
+        max-height: calc(100vh - 150px);
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -89,10 +90,9 @@
         flex-direction: column;
         gap: 10px;
         z-index: 0;
-        max-height: 75vh;
     }
 
-      @media(max-height: 800px){
+    /* @media(max-height: 800px){
         .wrapper{
         max-height: 70vh;
         }
@@ -102,7 +102,7 @@
         .wrapper{
         max-height: 60vh;
         }
-    }
+    } */
 
     #optionInput{
         box-sizing: border-box;
@@ -125,10 +125,10 @@
 
     #addButton{
         position: absolute;
-        top: 1.8px;
-        right: 1.88px;
-        background-color: #ff007b77;
-        height: 93%;
+        top: 0px;
+        right: 0px;
+        background-color: #731241;
+        height: 100%;
         padding: 0px 30px;
         border: none;
         border-radius: 1000px;
@@ -137,6 +137,7 @@
         font-weight: bolder;
         color: #18181b;
         cursor: pointer;
+        z-index: 15;
     }
     
     #addButton:focus{
