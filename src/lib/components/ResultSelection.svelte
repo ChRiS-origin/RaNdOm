@@ -19,7 +19,7 @@
             <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="transparent"><path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/></svg>
         </label>
         <label for="option-{$result_selection.id}" class="optionText">
-            <form>
+            <form class="overflow-auto">
                 <input id="optionInput" type="text" bind:value={$result_selection.text} autocomplete="off" on:click={handleSubmit($result_selection.id, $result_selection.text)}>
             </form>
         </label>
@@ -36,13 +36,14 @@
 <style>
     .nothingThere{
         margin-top: 6vh;
-        margin-left: 29.3vw; 
+        margin-left: 27.3vw; 
     }
 
     #optionInput{
         box-sizing: border-box;
-        padding: 1px 20px;
+        padding: 0px 20px;
         width: 100%;
+        height: 3rem;
         background: none;
         border: none;
         border-radius: 1000px;

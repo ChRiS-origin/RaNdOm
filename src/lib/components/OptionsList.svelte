@@ -35,7 +35,7 @@
 </script>
 
 <bodyOptions>
-    <div class="wrapper">
+    <div class="wrapper overflow-auto">
         <form on:submit|preventDefault={() =>{rotateIcon(); handleAdd(optionInput);}}>
             <input id="optionInput" type="text" placeholder="type in your option…" autocomplete="off" bind:value={optionInput} bind:this={inputField}>
             <button id="addButton">ADD</button>
@@ -55,7 +55,7 @@
             </li>
         </ul>
         <div class="overflow-auto">
-            <ul id="optionList" class="optionList  w-full">
+            <ul id="optionList" class="overflow-auto w-full">
                 {#each $options as option, optionIndex (option.id)}
                     <Option option={option} optionIndex={optionIndex}/>
                 {:else}
@@ -74,39 +74,6 @@
         display: flex;
         justify-content: center;
     }
-
-    .optionList{
-        min-height: 90%;
-        max-height: 69vh;
-    }
-
-    @media(max-height: 915px){
-        .optionList{
-        min-height: 90%;
-        max-height: 58vh;
-        }
-    }
-
-    @media(max-height: 760px){
-        .optionList{
-        min-height: 90%;
-        max-height: 54vh;
-        }
-    }
-
-    @media(max-height: 635px){
-        .optionList{
-        min-height: 90%;
-        max-height: 40vh;
-        }
-    }
-
-    @media(max-height: 530px){
-        .optionList{
-        min-height: 90%;
-        max-height: 37vh;
-        }
-    }
     
     bodyOptions{
         padding: 10px;
@@ -122,6 +89,19 @@
         flex-direction: column;
         gap: 10px;
         z-index: 0;
+        max-height: 75vh;
+    }
+
+      @media(max-height: 800px){
+        .wrapper{
+        max-height: 70vh;
+        }
+    }
+
+    @media(max-height: 550px){
+        .wrapper{
+        max-height: 60vh;
+        }
     }
 
     #optionInput{
@@ -148,7 +128,7 @@
         top: 1.8px;
         right: 1.88px;
         background-color: #ff007b77;
-        height: 92.5%;
+        height: 93%;
         padding: 0px 30px;
         border: none;
         border-radius: 1000px;
