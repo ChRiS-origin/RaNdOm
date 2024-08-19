@@ -77,7 +77,7 @@
     
     bodyOptions{
         padding: 10px;
-        max-height: calc(100vh - 150px);
+        max-height: calc(100vh - 190px);
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -91,18 +91,6 @@
         gap: 10px;
         z-index: 0;
     }
-
-    /* @media(max-height: 800px){
-        .wrapper{
-        max-height: 70vh;
-        }
-    }
-
-    @media(max-height: 550px){
-        .wrapper{
-        max-height: 60vh;
-        }
-    } */
 
     #optionInput{
         box-sizing: border-box;

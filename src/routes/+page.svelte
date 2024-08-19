@@ -63,7 +63,7 @@
         min-width: 300px;
         background-color: #6d28d9;
         padding: 5px;
-        margin-bottom: 1rem;
+        margin-bottom: 0.3rem;
         border-radius: 10px;
         border-color: #f2eee2;
         color: #f2eee2;
