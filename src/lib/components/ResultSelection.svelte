@@ -14,7 +14,7 @@
 
 <li class="option">
     {#if ($result_selection.selected)}
-        <input type="checkbox" id="option-{$result_selection.id}" checked={$result_selection.selected} on:change={() => selectOption($result_selection.id)} on:click={() => {getRandom(); rotateIcon()}}>
+        <input type="checkbox" id="option-{$result_selection.id}" checked={$result_selection.selected} on:click={() => {selectOption($result_selection.id); getRandom(); rotateIcon();}}>
         <label class="custom-checkbox" for="option-{$result_selection.id}">
             <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="transparent"><path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/></svg>
         </label>

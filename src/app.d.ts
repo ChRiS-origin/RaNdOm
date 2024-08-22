@@ -7,6 +7,11 @@ declare global {
 		// interface PageData {}
 		// interface PageState {}
 		// interface Platform {}
+		interface PageState {
+			showOverlay: boolean;
+			toggleOverlay: boolean;
+			// add as many as you'd like...
+		}
 	}
 }
 

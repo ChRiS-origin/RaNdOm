@@ -1,4 +1,5 @@
 <script>
+    import NavBar from '$lib/components/NavBar.svelte';
     import Overlay from '$lib/components/Overlay.svelte';
     import OptionsList from '$lib/components/OptionsList.svelte';
     import {rotateIcon} from "$lib/ui_logic";
@@ -18,8 +19,11 @@
         if (!showOverlay) {
             history.back()
         } 
-    };
-    import NavBar from '$lib/components/NavBar.svelte';
+    };   
+
+    const popUP = () => {
+        alert('works');
+    }
     
     let RandMode = 'Random';
 
@@ -38,7 +42,7 @@
 {/if}
 <OptionsList/>
 <div>
-    <button class="button" on:click={() => { if (RandMode === 'Random') {getRandom()} else {getRandomOrder()}; rotateIcon();toggleOverlay();}}>
+    <button class="button" on:click={() => { if (RandMode === 'Random') {getRandom()} else {getRandomOrder()}; rotateIcon(); toggleOverlay();}}>
         R@ŊðØm
     </button>
 </div>
