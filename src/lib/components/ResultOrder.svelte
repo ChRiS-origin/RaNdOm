@@ -16,7 +16,7 @@
     <ul id="optionList" class="optionList  w-full">
         {#each $result_order as resultRand}
             <li class="option">
-                <input type="checkbox" id="option-{resultRand.id}" checked={resultRand.selected} on:click={() => {selectOption(resultRand.id); getRandomOrder(); rotateIcon();}}>
+                <input type="checkbox" id="option-{resultRand.id}" checked={resultRand.selected} bind:value={resultRand.selected} on:click={() => {selectOption(resultRand.id); getRandomOrder(); rotateIcon();}}>
                 <label class="custom-checkbox" for="option-{resultRand.id}" >
                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="transparent"><path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/></svg>
                 </label>
@@ -40,7 +40,8 @@
 <style>
     .nothingThere{
         padding-top: 21vh;
-        margin-left: 28.3vw; 
+        display: flex;
+        justify-content: center;
     }
 
     .optionList{

@@ -53,7 +53,6 @@ export const editOption = (id, newtext) => {
             if (options[i].id === id) {
                 options[i].text = newtext;
                 options[i].selected = true;
-                // selectOption(id)
                 break;
             }
         }

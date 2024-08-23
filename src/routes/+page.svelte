@@ -12,18 +12,14 @@
     export let showOverlay = false;
 
     const toggleOverlay = () => {
-            showOverlay =  !showOverlay;
-            pushState('', {
+        pushState('', {
 			showOverlay: {showOverlay}
 		});
+        showOverlay =  !showOverlay;
         if (!showOverlay) {
             history.back()
-        } 
+        };
     };   
-
-    const popUP = () => {
-        alert('works');
-    }
     
     let RandMode = 'Random';
 

@@ -80,7 +80,6 @@
       margin: 0;
       margin-top: -50px;
       list-style: none;
-      box-shadow: 0 3px 0px rgba(0, 0, 0, 0.436);
     }
 
     .flex-item{
