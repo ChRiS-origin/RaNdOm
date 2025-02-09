@@ -147,7 +147,7 @@
         border-radius: 15px;
         display: flex;
         align-items: center;
-        box-shadow: -0.8px -3px 2px -1px #080809a4 inset;
+        box-shadow: 0px -1px 3px -1px #080809a4 inset;
     }
 
     .optionHead .optionHeadText{

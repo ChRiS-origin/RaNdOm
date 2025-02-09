@@ -3,10 +3,11 @@
     export let RandMode = 'Random';
 </script>
 
-<button class="button" on:click on:click={rotateIcon}>{RandMode}</button>
+<button class="button flex-item" on:click on:click={rotateIcon}>{RandMode}</button>
 
 <style>
     .button{
+        margin-top: 7px;
         text-align: center; 
         cursor: pointer;
     }
