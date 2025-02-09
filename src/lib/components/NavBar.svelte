@@ -29,16 +29,11 @@
 <style>
     nav{
         font-size: 1rem;
-        /* line-height: 2rem; */
     }
 
     .flex-container{
       display: flex;
-      /* flex-flow: row; */
       justify-content: space-around;
-      /* padding: 0;
-      margin-top: -35px;
-      list-style: none; */
       box-shadow:  0px 3px 3px rgba(0, 0, 0, 0.463);
     }
 
@@ -47,9 +42,6 @@
         padding: 5px;
         width: 200px;
         margin: 10px;
-        /* margin-top: 10px; */
-        /* margin-bottom: -30px; */
-        /* line-height: 120px; */
         font-weight: bold;
         font-size: 1.5em;
         text-align: center;
@@ -57,7 +49,7 @@
 
     img{
         position: relative;
-        margin-left: 6vw;
+        margin-left: 5.1vw;
         max-width: 48px;
         max-height: 48px;
         }

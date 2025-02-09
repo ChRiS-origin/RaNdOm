@@ -22,7 +22,6 @@
         height: 22px;
         position: relative;
         margin-top: 15px;
-        /* margin-left: 50px; */
         display: inline-flex;
         background: #ebebeb;
         border-radius: 200px;

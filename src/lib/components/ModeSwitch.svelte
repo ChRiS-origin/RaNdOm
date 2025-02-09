@@ -7,6 +7,8 @@
 
 <style>
     .button{
+        display: inline-block;
+        white-space: nowrap;
         margin-top: 7px;
         text-align: center; 
         cursor: pointer;
